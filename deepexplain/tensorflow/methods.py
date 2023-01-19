@@ -543,7 +543,7 @@ attribution_methods = OrderedDict({
 
 
 
-@ops.RegisterGradient("DeepExplainGrad")
+@ops.RegisterGradient("DeepExplainGrad1")
 def deepexplain_grad(op, grad):
     global _ENABLED_METHOD_CLASS, _GRAD_OVERRIDE_CHECKFLAG
     _GRAD_OVERRIDE_CHECKFLAG = 1
@@ -625,7 +625,7 @@ class DeepExplain(object):
 
     @staticmethod
     def get_override_map():
-        return dict((a, 'DeepExplainGrad') for a in SUPPORTED_ACTIVATIONS)
+        return dict((a, 'DeepExplainGrad1') for a in SUPPORTED_ACTIVATIONS)
 
     def _check_ops(self):
         """
